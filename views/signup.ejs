@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=#, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<body>
+    Sign up page <br> <br>
+    <br>
+    <form action="http://localhost:3000/register" method="POST" id="formSubmit" >
+        Username: <input type="text" name="username" id=""> <br><br>
+        Password: <input type="password" name="password" id="pwsd"> <span id = "message" style="color:red"> </span>   <br><br>
+        Confirm Password: <input type="text" name="confirm_password" id=""> <br> <br>
+        <button type="submit" id="signup" >Submit</button>
+        
+    </form>
+    
+</body>
+<script src="/assets/js/script.js"></script>
+</html>
