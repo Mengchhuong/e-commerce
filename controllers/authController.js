@@ -10,6 +10,8 @@ exports.dashboard= (req,res) =>{
     res.render('dashboard');
 }
 
+
+
 exports.register = (req,res) =>{
    const username= req.body.username;
    const password= req.body.password;

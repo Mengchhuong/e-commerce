@@ -6,11 +6,10 @@ document.getElementById('signup').addEventListener('click', result =>{
     for (const pair of form) {
         console.log(pair)
         dataSubmit[pair[0]]= pair[1]
-
     }
     // console.log(dataSubmit)
     var pw = dataSubmit['password'];
-    if(pw == "" || pw.length < 8 || pw.length > 15){
+    if(pw == "" || pw.length < 3 || pw.length > 15){
         if(pw==""){
             document.getElementById("message").innerHTML = "Fill the password please!";
         }
@@ -22,18 +21,19 @@ document.getElementById('signup').addEventListener('click', result =>{
         }
     }
     else{
-      if (dataSubmit.confirm_password==dataSubmit.password){ 
-         axios.post("http://localhost:3000/register/",dataSubmit).then(result=>{
-             document.body.innerHTML=result.data
-             history.pushState(result.data,"signin","/signin")
-         }).catch(err=>{
-             console.log("error")
-         })
-     }
-     else {
-         let message=document.createElement("div").innerHTML="password is incorrect"
-         document.body.append(message)
-     }
+        if (dataSubmit.confirm_password==dataSubmit.password){ 
+            axios.post("http://localhost:3000/register/",dataSubmit).then(result=>{
+                // document.body.innerHTML=result.data
+                // history.pushState(result.data,"signin","/signin")
+                window.location.pathname="/signin"
+            }).catch(err=>{
+                console.log("error")
+            })
+        }
+        else {
+            let message=document.createElement("div").innerHTML="password is incorrect"
+            document.body.append(message)
+        }
 
     }
     

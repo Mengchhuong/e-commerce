@@ -17,7 +17,7 @@ app.use(routes);
 
 mongoose.connect('mongodb+srv://user123:user123@cluster0.nlyev.mongodb.net/user?retryWrites=true&w=majority').then(
     result=>{
-        console.log("connected")
+        console.log("DB is connected")
     }
 ).catch(err=>{
     console.log(err)
