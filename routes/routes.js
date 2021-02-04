@@ -6,6 +6,7 @@ router.get('/',authController.dashboard);
 router.get('/signin',authController.signIn);
 router.get('/signup',authController.signUp);
 router.post('/register', authController.register);
+router.post('/login', authController.login);
 
 
 // router.get('/signin',(req,res)=>{

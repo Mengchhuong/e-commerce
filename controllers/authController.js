@@ -1,7 +1,8 @@
 const User = require('../models/users');
+const bcrypt = require("bcrypt");
 
 exports.signIn= (req,res) =>{
-    res.render('signin');
+    res.render('signin',{error:false});
 }
 exports.signUp= (req,res) =>{
     res.render('signup');
@@ -10,21 +11,40 @@ exports.dashboard= (req,res) =>{
     res.render('dashboard');
 }
 
-
+exports.login = (req, res) => {
+    const email = req.body.email;
+    const password = req.body.password;
+    User.find({email: email}).then(result => {
+      if(result) {
+        bcrypt.compare(password, result[0].password, function(err, passwordIsMatch) {
+          if(passwordIsMatch) {
+            res.redirect("/");
+          } 
+          else {
+            res.render("signin", {error: true, message: "Incorrect passowrd"});
+          }
+        })
+      }
+    }).catch(err => {
+      console.log(err);
+    })
+  }
 
 exports.register = (req,res) =>{
    const username= req.body.username;
    const password= req.body.password;
-   const confirm_password = req.body.confirm_password;
+   const email= req.body.email;
+  //  const confirm_password = req.body.confirm_password;
    const date = new Date();
-
+   const salt = bcrypt.genSaltSync(10);
    const user = new User({
-       username,
-       password,
+       username: username,
+       email: email,
+       password: bcrypt.hashSync(password,salt),
        registerAt: date.toISOString()
    })
    user.save().then(result=>{
-       console.log("save")
+    //    console.log("save")
         res.redirect('/signin');
     }).catch(err =>{
         console.log(err)
