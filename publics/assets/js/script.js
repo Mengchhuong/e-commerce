@@ -1,6 +1,6 @@
 
-document.getElementById('signup').addEventListener('click', result =>{
-    result.preventDefault() //to prevent link to another url or page
+function validator(event){
+    event.preventDefault() //to prevent link to another url or page
     // const form = new FormData(document.querySelector("form"))
     // let dataSubmit={}
     var pw=document.getElementById("pwsd").value;
@@ -45,7 +45,7 @@ document.getElementById('signup').addEventListener('click', result =>{
         })
     }
         
-})
+}
 
 
 
