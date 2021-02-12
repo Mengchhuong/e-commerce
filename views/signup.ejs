@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=#, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <link rel="stylesheet" href="./assets/css/register.css">
@@ -32,12 +32,12 @@
         </div>
 
         <div class="mb-3">
-          <label for="email" class="form-label">Email address</label>
+          <label for="email" class="form-label">Email address</label> <span class="message" id = "message1"></span>
           <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
         </div>
 
         <div class="mb-3">
-          <label for="pwsd" class="form-label">Password</label>
+          <label for="pwsd" class="form-label">Password</label><span class="message" id = "message"></span>
           <input type="password" class="form-control" name="password" id="pwsd">
         </div>
 
@@ -50,7 +50,7 @@
           <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
           <label class="form-check-label" for="exampleCheck1">I accept Terms and Conditions</label>
         </div>
-        <button type="submit" class="btn btn-success">Sign Up</button>
+        <button type="submit" id="signup" class="btn btn-success">Sign Up</button>
        
       </form>
       <center class="mb-1 mt-2"><span class="signup">Already have account?</span> <a href="http://localhost:3000/signin">Sign In</a></center>

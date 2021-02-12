@@ -33,13 +33,18 @@ document.getElementById('signup').addEventListener('click', result =>{
         axios.post("http://localhost:3000/register/",{username:username,email:email,password:pw}).then(result=>{
             // document.body.innerHTML=result.data
             // history.pushState(result.data,"signin","/signin")
-            window.location.pathname="/signin"
+            // console.log(result);
+            if(result.data.email){
+                document.getElementById("message1").innerHTML="Email already exists";
+            }
+            else{
+                window.location.pathname="/signin"
+            }
         }).catch(err=>{
             console.log("error")
         })
     }
         
-    
 })
 
 

@@ -13,3 +13,7 @@
 .btn.btn-success{
     width: 100%;
 }
+.message{
+    float: right;
+    color: red;
+}

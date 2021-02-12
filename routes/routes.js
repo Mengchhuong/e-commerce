@@ -7,6 +7,7 @@ router.get('/signin',authController.signIn);
 router.get('/signup',authController.signUp);
 router.post('/register', authController.register);
 router.post('/login', authController.login);
+// router.get('/If_exists',authController.If_exists);
 
 
 // router.get('/signin',(req,res)=>{

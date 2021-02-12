@@ -37,17 +37,34 @@ exports.register = (req,res) =>{
   //  const confirm_password = req.body.confirm_password;
    const date = new Date();
    const salt = bcrypt.genSaltSync(10);
-   const user = new User({
-       username: username,
-       email: email,
-       password: bcrypt.hashSync(password,salt),
-       registerAt: date.toISOString()
-   })
-   user.save().then(result=>{
-    //    console.log("save")
-        res.redirect('/signin');
-    }).catch(err =>{
-        console.log(err)
-        res.render('signup',{message: "Signup fail, try again"});
-    });
+
+
+  User.findOne({email:email}).then(result=>{
+    if(result){
+      res.json({email: true});
+    }
+    else{
+      const user = new User({
+        username: username,
+        email: email,
+        password: bcrypt.hashSync(password,salt),
+        registerAt: date.toISOString()
+      })
+      user.save().then(result=>{
+      //    console.log("save")
+          // res.redirect('/signin');
+          res.json({email:false});
+      }).catch(err =>{
+          console.log(err)
+          res.render('signup',{message: "Signup fail, try again"});
+      });
+    }
+    
+  })
+
+  // if(check_unique==true){
+  //   console.log(check_unique);
+    
+  // }
+  
 }
