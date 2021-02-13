@@ -26,5 +26,9 @@ const productSchema = new Schema({
         default:"null",
 
     },
+    price:{
+        type:Number,
+        required:true,
+    }
 },{collection:'product'});
 module.exports= mongoose.model('product',productSchema);

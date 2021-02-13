@@ -40,7 +40,7 @@
 </style>
 <body>
     
- <div class="topside"><span class="awesome">Awesome Shop | Admin Pannel</span> <span class="link"><a href="">Home</a> | <a href="http://localhost:3000/signin">Log Out</a></span></div> 
+ <div class="topside"><span class="awesome">Awesome Shop | Admin Pannel</span> <span class="link"><a href="http://localhost:3000/">Home</a> | <a href="http://localhost:3000/signin">Log Out</a></span></div> 
 
     <div class="row">
         <div class="col-3">
@@ -100,6 +100,10 @@
                                     <label for="Date" class="form-label">Import Date</label>
                                     <input type="date" class="form-control" id="Date" name="importDate">
                                     </div>
+                                    <div class="mb-2">
+                                      <label for="price" class="form-label">Price</label>
+                                      <input type="number" step="any" class="form-control" id="price" name="price">
+                                    </div>
 
                                     <div class="mb-2">
                                         <label for="Date" class="form-label">Category</label>
@@ -134,7 +138,8 @@
                             <th scope="col-2">Detail</th>
                             <th scope="col-2">Instock At</th>
                             <th scope="col-1">Category</th>
-                            <th scope="col-2">Action</th>
+                            <th scope="col-1">Price</th>
+                            <th scope="col-1">Action</th>
                           </tr>
                         </thead>
                         
@@ -149,6 +154,7 @@
                             <td><%= result[i].detail %></td>
                             <td><%= result[i].importDate.toDateString() %></td>
                             <td><%= result[i].category %></td>
+                            <td><%= result[i].price %> $</td>
                             <td>
                                 <form action="/product/<%= result[i]._id %>" method="POST">
                                 <button class="btn btn-danger" type="submit" value="<%= result[i]._id %>">Delete</button>
@@ -172,14 +178,12 @@
                         </tbody>
                       </table>
                 </div>
-
-
               </div>
 
             </div>
-            <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">hi</div>
-            <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">what?</div>
-            <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">hehe</div>
+            <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">Not enought time to complete this part</div>
+            <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">Not enought time to complete this part</div>
+            <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">Not enought time to complete this part</div>
           </div>
         </div>
       </div>

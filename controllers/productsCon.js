@@ -1,6 +1,30 @@
 const Product= require('../models/products')
 const fs = require('fs');
 
+
+// exports.dashboard= (req,res) =>{
+//     res.render('dashboard',{result:result});
+// }
+exports.getAllProduct=async(req,res)=>{
+    await Product.find().then(result=>{
+        if(result){
+            res.render('dashboard',{error:false,result:result});
+        }
+        else{
+            res.render('dashboard',{error:false,result:false});
+        }
+    })
+}
+exports.displayClothes=async(req,res)=>{
+    await Product.findById(req.params.id).then(result=>{
+        if(result){
+            res.render('clothes',{error:false,result:result});
+        }
+        else{
+            res.render('clothes',{error:false,result:false});
+        }
+    })
+}
 exports.admin=async(req,res)=>{
     await Product.find().then(result=>{
         if(result){
@@ -33,6 +57,7 @@ exports.createProduct=(req,res)=>{
                     img:savepath,
                     productname:req.body.productname,
                     qty:req.body.qty,
+                    price:req.body.price,
                     detail:req.body.detail,
                     importDate:req.body.importDate,
                     category:req.body.category,
@@ -48,6 +73,7 @@ exports.createProduct=(req,res)=>{
         }
     })
 }
+
 exports.deleteProduct = (req,res)=>{
     const path="./publics"
     console.log(req.params.id)

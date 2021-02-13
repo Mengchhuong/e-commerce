@@ -7,8 +7,9 @@ exports.signIn= (req,res) =>{
 exports.signUp= (req,res) =>{
     res.render('signup');
 }
-exports.dashboard= (req,res) =>{
-    res.render('dashboard');
+
+exports.clothes=(req,res)=>{
+  res.render('clothes');
 }
 
 exports.login = (req, res) => {
@@ -18,7 +19,7 @@ exports.login = (req, res) => {
       if(result) {
         bcrypt.compare(password, result[0].password, function(err, passwordIsMatch) {
           if(passwordIsMatch) {
-            res.redirect("/");
+            res.redirect("/admin");
           } 
           else {
             res.render("signin", {error: true, message: "Incorrect passowrd"});
